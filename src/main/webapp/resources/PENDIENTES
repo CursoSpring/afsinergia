@@ -24,4 +24,4 @@ Cosas al considerar al hacer una nueva pantalla:
 	  Bootstrap validator el max length debe ser 15.
 	- <c:out> aplicarlo en los jsp's.
 	
-Nuevo commit.	
+Nuevo commit + ssh key	
