@@ -1,0 +1,25 @@
+- Implementar el camino de los get´s() que va recorriendo el usuario para que este pueda retroceder 
+  facilmente a anteriores.
+- Mejorar el hide() y show() del modulo de unidades, quiza en el div por idTipoUnidad no dio por
+  wu rno tenia la clase form-group o form-control o algo asì.
+- Caso de uniques, validarlos para que le informe al usuario y no truene.
+- Algoritmo de clientes.
+- Trigers, el que genera todo tras de dar de alta un cliente y el que actualiza el # de unidades en contrato.
+- Customize de archivos de bootstrap.
+- Variables globales js.
+- Optimizar la queryes de hibernate.
+- Inicio de session dual para los 2 roles de hibernate.
+- Implementar testin.
+- Git.
+- Oppenshift.
+- Prueba de quitar la ref maven que hace que sea mas rápido, asi como las que no se ocuan como HTOAS.
+- Cifrado de css y js(propios).
+
+			Verificar los llamados(creo que estan duplicados)
+			resources/js/redirectGeneric.js
+
+Cosas al considerar al hacer una nueva pantalla:
+	- Añadir u ocupar textos genericos.
+	- validaciones coherentes con la base, por ejemplo si nombre x tabla es de tipo varchar(15) entonces en 
+	  Bootstrap validator el max length debe ser 15.
+	- <c:out> aplicarlo en los jsp's.

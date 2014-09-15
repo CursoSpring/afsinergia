@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:database.properties</value>
+		</property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.databaseurl}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- Inicializamos la propiedad dataSource con la instancia de datasource 
+			de arriba -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- Asi le decimos a hibernate el paquete en donde buscar las entidades 
+			para mapeo -->
+		<property name="packagesToScan" value="com.afsinergia.org.model" />
+		<property name="hibernateProperties">
+			<map>
+				<entry key="hibernate.dialect" value="${jdbc.dialect}" />
+				<entry key="hibernate.show_sql" value="${jdbc.showSql}" />
+			</map>
+		</property>
+	</bean>
+
+
+	<!-- Le dice a srping donde (bajo que paquete) buscar clases con anotaciones 
+		spring -->
+	<context:component-scan base-package="com.afsinergia.org.dao,com.afsinergia.org.service" />
+
+	<!-- Para tener una transaccion declarativa (no programatica) 
+	 Con esto estamos instanciando en el contexto de spring de la clase (por el beqan sinonimo de @Autow..) 
+	 org.springframework.orm.hibernate4.HibernateTransactionManager
+	 
+	 con el ref => las inyectamos
+	-->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+</beans>
