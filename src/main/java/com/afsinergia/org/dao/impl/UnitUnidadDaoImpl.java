@@ -73,6 +73,7 @@ public class UnitUnidadDaoImpl extends GenericDaoImpl<UnitUnidad, Integer> imple
 			
 			String qry = "";
 			System.out.println("La unidad es: "+unidad.getUnicTipoUnidad().getIdTipoUnidad());
+			System.out.println("La unidad es: "+unidad.toString());
 			//unidad vehiculo
 			if(unidad.getUnicTipoUnidad().getIdTipoUnidad() == 1)
 			{System.out.println("************************************************* VHM: Unidad");
