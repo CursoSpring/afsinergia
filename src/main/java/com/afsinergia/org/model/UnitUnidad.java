@@ -146,7 +146,7 @@ public class UnitUnidad implements java.io.Serializable {
 		this.distDispositivo = distDispositivo;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_flotilla", nullable = false)
 	public AfstFlotilla getAfstFlotilla() {
 		return this.afstFlotilla;

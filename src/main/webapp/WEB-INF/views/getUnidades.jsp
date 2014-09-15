@@ -21,7 +21,7 @@
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr>
-							<th class="text-primary"><spring:message code="generic.nombre"/></th><th class="text-primary"><spring:message code="unidad.tipo.unidad"/></th><th class="text-primary"><spring:message code="generic.editar"/></th><th class="text-primary"><spring:message code="generic.eliminar"/></th>
+							<th class="text-primary"><spring:message code="generic.nombre"/></th><th class="text-primary"><spring:message code="unidad.tipo.unidad"/><th class="text-primary"><spring:message code="flotillas"/></th><th class="text-primary"><spring:message code="generic.editar"/></th><th class="text-primary"><spring:message code="generic.eliminar"/></th>
 						</tr>
 					</thead>
 
@@ -31,6 +31,7 @@
 								<tr data-href="getUsuariosByIdGpoUsu/<c:out value="${unidades.get(i).getIdUnidad()}"></c:out>">
 									<td><c:out value="${unidades.get(i).getNombre()}"></c:out></td>
 									<td><c:out value="${unidades.get(i).getUnicTipoUnidad().getNomUnidad()}"></c:out></td>
+									<td><c:out value="${unidades.get(i).getAfstFlotilla().getNombre()}"></c:out></td>
 									<td><a id="edita<c:out value="${unidades.get(i).getIdUnidad()}"></c:out>" data-toggle="modal" href="getUnidadById/<c:out value="${unidades.get(i).getIdUnidad()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
 									<td><a id="elimina<c:out value="${unidades.get(i).getIdUnidad()}"></c:out>" class="btn btn-default btn-link">Eliminar</a></td>
 								</tr>

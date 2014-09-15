@@ -13,6 +13,8 @@
 - Oppenshift.
 - Prueba de quitar la ref maven que hace que sea mas rápido, asi como las que no se ocuan como HTOAS.
 - Cifrado de css y js(propios).
+- Cambio de id's de div de resultados vacio, son iguales en todas las pantallas getX.
+- Relación de dispo con unidades.
 
 			Verificar los llamados(creo que estan duplicados)
 			resources/js/redirectGeneric.js
