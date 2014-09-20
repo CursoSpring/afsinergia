@@ -36,4 +36,10 @@ public class PtltPrivilegioServiceImpl implements PtltPrivilegioService{
 		return privilegios;
 	}
 
+	@Override
+	@Transactional
+	public void saveOrUpdatePrivilegios(List<PtltPrivilegio> privilegios) {
+		dao.saveOrUpdatePrivilegios(privilegios);
+	}
+
 }

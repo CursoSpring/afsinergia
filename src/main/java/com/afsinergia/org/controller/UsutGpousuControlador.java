@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.afsinergia.org.model.PtltPrivilegio;
 import com.afsinergia.org.model.UsutGpousu;
 import com.afsinergia.org.model.RespuestaDeError;
+import com.afsinergia.org.service.PtltPrivilegioService;
 import com.afsinergia.org.service.UsutGpousuService;
 import com.afsinergia.org.utils.ModuloSolicitado;
 import com.afsinergia.org.utils.URLS;
@@ -27,6 +29,9 @@ public class UsutGpousuControlador {
 
 	@Autowired
 	private UsutGpousuService service;
+	
+	@Autowired
+	private PtltPrivilegioService servicePrivilegio;
 	
 	//Metodo que retorna los grupos de usuario en funcion del contrato
 	@RequestMapping(value = URLS.GET_GRUPOS_USUARIOS, method = RequestMethod.GET)
@@ -106,5 +111,41 @@ public class UsutGpousuControlador {
 		
 		modelo.addAttribute("idContrato", idContrato);
 		return "frmGrupoUsuario";
+	}
+	
+														/********Privilegios***********/
+	
+	//obtiene los privilegios en funcion del grupo usuario
+	@RequestMapping(value = URLS.GET_PRIVILEGIOS_BY_ID_GPO_USU, method = RequestMethod.GET)
+	public String getPrivilegiosByIdGpoUsu(@PathVariable(value = "id") Integer idGrupoUsuario, Model modelo)
+	{
+		logger.info("\t\t****************** VHM: metodo getPrivilegiosByIdGpoUsu/{"+idGrupoUsuario+"} clase "+this.getClass().getName());
+		
+		List<PtltPrivilegio> privilegios = servicePrivilegio.getAllPrivilegioByIdGpoUsuario(idGrupoUsuario);
+		modelo.addAttribute("privilegios", privilegios);
+		
+		return "frmPrivilegios";
+	}
+	
+	//asigna los privilegios a un grupo usuario
+	@RequestMapping(value = URLS.SET_PRIVILEGIOS, method = RequestMethod.POST)
+	public @ResponseBody RespuestaDeError setPrivilegios(HttpServletRequest request, @RequestBody List<PtltPrivilegio> privilegio)
+	{
+		logger.info("\t\t****************** VHM: metodo setPrivilegios clase "+this.getClass().getName());
+		logger.info("\t\t****************** VHM: metodo setPrivilegios privilegios: "+privilegio.size());
+		
+		for(int i=0;i < privilegio.size();i++)
+			System.out.println("Modulo: "+privilegio.get(i).getPtlcModulo().getIdModulo()+", funcion: "+privilegio.get(i).getPtlcFuncion().getIdFun()+", gpo: "+privilegio.get(i).getUsutGpousu().getIdGpousu());
+		
+		//hacemos el set del modulo para que al hacer el load despues de guardar/actualizar se actualice la tabla
+		//ModuloSolicitado moduloSolicitado = (ModuloSolicitado) request.getSession().getAttribute("moduloSolicitado");
+		//request.getSession().setAttribute("moduloSolicitado",moduloSolicitado);
+		//////////////////////
+		//service.saveOrUpdateGrupoUsuario(grupoUsuario);
+		
+		RespuestaDeError r = new RespuestaDeError();
+		r.setError(false);
+		r.setMensaje("jala :=)");
+		return r;
 	}
 }

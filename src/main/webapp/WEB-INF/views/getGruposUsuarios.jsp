@@ -21,7 +21,7 @@
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr>
-							<th class="text-primary"><spring:message code="generic.nombre"/></th><th class="text-primary"><spring:message code="generic.editar"/></th><th class="text-primary"><spring:message code="generic.eliminar"/></th>
+							<th class="text-primary"><spring:message code="generic.nombre"/></th><th class="text-primary"><spring:message code="privilegios.editar"/></th><th class="text-primary"><spring:message code="generic.editar"/></th><th class="text-primary"><spring:message code="generic.eliminar"/></th>
 						</tr>
 					</thead>
 
@@ -30,6 +30,7 @@
 							<c:forEach var="i" begin="0" end="${gruposUsuarios.size()-1}">
 								<tr data-href="getUsuariosByIdGpoUsu/<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>">
 									<td><c:out value="${gruposUsuarios.get(i).getNombre()}"></c:out></td>
+									<td><a id="editarPrivilegios<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-toggle="modal" href="getPrivilegiosByIdGpoUsu/<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
 									<td><a id="edita<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-toggle="modal" href="getGrupoUsuarioByid/<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
 									<td><a id="elimina<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" class="btn btn-default btn-link">Eliminar</a></td>
 								</tr>

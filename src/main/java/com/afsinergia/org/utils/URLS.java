@@ -27,6 +27,9 @@ public class URLS {
 	public static final String GET_GRUPO_USUARIO_BY_ID = "/getGrupoUsuarioByid/{id}";
 	public static final String SET_GRUPO_USUARIO = "/setGrupoUsuario";
 	public static final String GRUPO_USUARIO = "/grupoUsuario/{id}";
+	//edicion de privilegios por grupo usuario
+	public static final String GET_PRIVILEGIOS_BY_ID_GPO_USU = "/getPrivilegiosByIdGpoUsu/{id}";
+	public static final String SET_PRIVILEGIOS = "/setPrivilegios";
 
 	//Controller UsutUsuarioControlador
 	public static final String GET_USUARIOS = "/getUsuarios";

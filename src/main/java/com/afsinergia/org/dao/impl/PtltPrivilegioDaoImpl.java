@@ -61,4 +61,10 @@ public class PtltPrivilegioDaoImpl extends GenericDaoImpl<PtltPrivilegio, Intege
 		return privilegios;
 	}
 
+	@Override
+	public void saveOrUpdatePrivilegios(List<PtltPrivilegio> privilegios) {
+		for(int i=0; i<privilegios.size(); i++)
+			getCurrentSession().saveOrUpdate(privilegios);
+	}
+
 }

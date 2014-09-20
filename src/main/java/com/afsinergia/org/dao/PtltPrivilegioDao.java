@@ -7,4 +7,5 @@ import com.afsinergia.org.model.PtltPrivilegio;
 public interface PtltPrivilegioDao {
 
 	public List<PtltPrivilegio> getAllPrivilegioByIdGpoUsuario(Integer idGpoUsuario);
+	public void saveOrUpdatePrivilegios(List<PtltPrivilegio> privilegios);
 }
