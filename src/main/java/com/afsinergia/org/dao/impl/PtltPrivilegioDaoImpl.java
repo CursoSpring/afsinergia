@@ -1,19 +1,17 @@
 package com.afsinergia.org.dao.impl;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
-import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.afsinergia.org.dao.PtltPrivilegioDao;
-import com.afsinergia.org.model.PtlcFuncion;
-import com.afsinergia.org.model.PtlcModulo;
 import com.afsinergia.org.model.PtltPrivilegio;
 
 @Component(value = "PtltPrivilegio")
@@ -34,35 +32,33 @@ public class PtltPrivilegioDaoImpl extends GenericDaoImpl<PtltPrivilegio, Intege
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PtltPrivilegio> getAllPrivilegioByIdGpoUsuario(Integer idGpoUsuario) {
-		Criteria criterio = getCurrentSession().createCriteria(PtltPrivilegio.class);
-		criterio.add(Restrictions.eq("usutGpousu.idGpousu", idGpoUsuario));
-		criterio.addOrder(Order.asc("ptlcModulo.idModulo"));
-		
-		List<PtltPrivilegio> privilegios = (List<PtltPrivilegio>) criterio.list();
 
-		//Hibernate.initialize(PtlcModulo.class);
-		//Hibernate.initialize(PtlcFuncion.class);
-
-		//session.update(object);
-		/*
-		 * http://stackoverflow.com/questions/345705/hibernate-lazyinitializationexception-could-not-initialize-proxy
-		 * http://stackoverflow.com/questions/21574236/org-hibernate-lazyinitializationexception-could-not-initialize-proxy-no-sess
-		 * */
-
-		if(privilegios != null && privilegios.size() > 0)
-		{
-			for(int i=0; i<privilegios.size(); i++){
-				PtlcModulo modulo = privilegios.get(i).getPtlcModulo();
-				PtlcFuncion funcion = privilegios.get(i).getPtlcFuncion();
-				System.out.println(":::::::VHM_ Dao"+", idModulo: "+modulo.getIdModulo()+", idFuncion: "+funcion.getIdFun()+", modulo: "+modulo.getNomMod()+", funcion: "+funcion.getNomFun());
-			}
-		}
+		Query query = getCurrentSession().createQuery("SELECT p FROM PtltPrivilegio p INNER JOIN FETCH p.ptlcModulo m INNER JOIN FETCH p.ptlcFuncion f INNER JOIN FETCH p.usutGpousu g where g.idGpousu =  "+idGpoUsuario);
+		List<PtltPrivilegio> privilegios = (List<PtltPrivilegio>) query.list();
+		Set<PtltPrivilegio> privilegiosSinDuplicar = new LinkedHashSet<PtltPrivilegio>(privilegios);
+		privilegios.clear();
+		privilegios.addAll(privilegiosSinDuplicar);
 		
 		return privilegios;
 	}
 
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<PtltPrivilegio> getAllPrivilegioByUserName(String userName) {
+
+		Query query = getCurrentSession().createQuery("SELECT p FROM PtltPrivilegio p INNER JOIN FETCH p.ptlcModulo m INNER JOIN FETCH p.ptlcFuncion f INNER JOIN FETCH p.usutGpousu g INNER JOIN FETCH g.usutUsuarios u  where u.usuario =  '"+userName+"'");
+		List<PtltPrivilegio> privilegios = (List<PtltPrivilegio>) query.list();
+		Set<PtltPrivilegio> privilegiosSinDuplicar = new LinkedHashSet<PtltPrivilegio>(privilegios);
+		privilegios.clear();
+		privilegios.addAll(privilegiosSinDuplicar);
+		
+		return privilegios;
+	}
+	
 	@Override
 	public void saveOrUpdatePrivilegios(List<PtltPrivilegio> privilegios) {
+		
 		for(int i=0; i<privilegios.size(); i++)
 			getCurrentSession().saveOrUpdate(privilegios);
 	}

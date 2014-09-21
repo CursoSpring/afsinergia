@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.afsinergia.org.model.PtltPrivilegio;
 import com.afsinergia.org.service.PtltPrivilegioService;
+import com.afsinergia.org.utils.URLS;
 
 @Controller
 public class PtltPrivilegioControlador {
@@ -22,12 +23,13 @@ public class PtltPrivilegioControlador {
 	@Autowired
 	private PtltPrivilegioService service;
 	
-	@RequestMapping(value = "/admin")
-	public String getAllPrivilegioByIdGpoUsuario(Authentication authentication, HttpServletRequest request, Model modelo) 
+	@RequestMapping(value = URLS.ADMIN)
+	public String getAllPrivilegioByUserName(Authentication authentication, HttpServletRequest request, Model modelo) 
 	{
-		logger.info("\t\t****************** VHM: metodo getAllPrivilegioByIdGpoUsuario clase "+this.getClass().getName());
+		logger.info("\t\t****************** VHM: metodo getAllPrivilegioByUserName clase  "+this.getClass().getName());
+		logger.info(":::::::::::::::::::: VHM: authentication.getName() = "+authentication.getName());
 		
-		List<PtltPrivilegio> privilegios = service.getAllPrivilegioByIdGpoUsuario(1);
+		List<PtltPrivilegio> privilegios = service.getAllPrivilegioByUserName(authentication.getName());
 		modelo.addAttribute("privilegiosUsuario", privilegios);
 		
 		//Nombre de usuario

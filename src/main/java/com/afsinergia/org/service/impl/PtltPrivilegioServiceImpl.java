@@ -20,20 +20,13 @@ public class PtltPrivilegioServiceImpl implements PtltPrivilegioService{
 	@Override
 	@Transactional
 	public List<PtltPrivilegio> getAllPrivilegioByIdGpoUsuario(Integer idGpoUsuario) {
-		
-		List<PtltPrivilegio> privilegios = dao.getAllPrivilegioByIdGpoUsuario(idGpoUsuario);
-		
-		/*if(privilegios != null && privilegios.size() > 0)
-		{
-			for(int i=0; i<privilegios.size(); i++){
-				PtlcModulo modulo = privilegios.get(i).getPtlcModulo();
-				PtlcFuncion funcion = privilegios.get(i).getPtlcFuncion();
-				//session.update(object);
-				System.out.println(":::::::VHM_ Service"+", idModulo: "+modulo.getIdModulo()+", idFuncion: "+funcion.getIdFun()+", modulo: "+modulo.getNomMod()+", funcion: "+funcion.getNomFun());
-			}
-		}*/
-		
-		return privilegios;
+		return dao.getAllPrivilegioByIdGpoUsuario(idGpoUsuario);
+	}
+
+	@Override
+	@Transactional
+	public List<PtltPrivilegio> getAllPrivilegioByUserName(String userName) {
+		return dao.getAllPrivilegioByUserName(userName);
 	}
 
 	@Override
