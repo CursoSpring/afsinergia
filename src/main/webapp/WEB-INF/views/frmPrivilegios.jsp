@@ -41,8 +41,43 @@
 							<!-- llena modulo -->
 								<li><a href="#"><c:out value="${privilegios.get(i).getPtlcFuncion().getNomFun()}"></c:out></a>
 									<ul>
-										<li><input type="checkbox" data-operacion="1" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.guardar"/></a></li>
-										<li><input type="checkbox" data-operacion="2" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.eliminar"/></a></li>
+									
+										<!-- alta -->
+										<c:if test="${privilegios.get(i).getAlta()}">
+											<li><input type="checkbox" data-operacion="1" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.guardar"/></a></li>
+										</c:if>
+									
+										<c:if test="${!privilegios.get(i).getAlta()}">
+											<li><input type="checkbox" data-operacion="1" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.guardar"/></a></li>
+										</c:if>
+
+										<!-- baja -->
+										<c:if test="${privilegios.get(i).getBaja()}">
+											<li><input type="checkbox" data-operacion="2" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.eliminar"/></a></li>
+										</c:if>	
+
+										<c:if test="${!privilegios.get(i).getBaja()}">
+											<li><input type="checkbox" data-operacion="2" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.eliminar"/></a></li>
+										</c:if>
+
+										<!-- cambio -->
+										<c:if test="${privilegios.get(i).getCambio()}">
+											<li><input type="checkbox" data-operacion="3" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.editar"/></a></li>
+										</c:if>	
+
+										<c:if test="${!privilegios.get(i).getCambio()}">
+											<li><input type="checkbox" data-operacion="3" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.editar"/></a></li>
+										</c:if>
+
+										<!-- consulta -->
+										<c:if test="${privilegios.get(i).getConsulta()}">
+											<li><input type="checkbox" data-operacion="4" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.consultar"/></a></li>
+										</c:if>	
+
+										<c:if test="${!privilegios.get(i).getConsulta()}">
+											<li><input type="checkbox" data-operacion="4" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.consultar"/></a></li>
+										</c:if>
+										
 									</ul>
 								</li>			
 							<!-- /llena modulo -->
@@ -73,8 +108,43 @@
 										<!-- llena modulo -->
 											<li><a href="#"><c:out value="${privilegios.get(i).getPtlcFuncion().getNomFun()}"></c:out></a>
 												<ul>
-													<li><input type="checkbox" data-operacion="1" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.guardar"/></a></li>
-													<li><input type="checkbox" data-operacion="2" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.eliminar"/></a></li>
+									
+													<!-- alta -->
+													<c:if test="${privilegios.get(i).getAlta()}">
+														<li><input type="checkbox" data-operacion="1" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.guardar"/></a></li>
+													</c:if>
+												
+													<c:if test="${!privilegios.get(i).getAlta()}">
+														<li><input type="checkbox" data-operacion="1" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.guardar"/></a></li>
+													</c:if>
+			
+													<!-- baja -->
+													<c:if test="${privilegios.get(i).getBaja()}">
+														<li><input type="checkbox" data-operacion="2" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.eliminar"/></a></li>
+													</c:if>	
+			
+													<c:if test="${!privilegios.get(i).getBaja()}">
+														<li><input type="checkbox" data-operacion="2" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.eliminar"/></a></li>
+													</c:if>
+			
+													<!-- cambio -->
+													<c:if test="${privilegios.get(i).getCambio()}">
+														<li><input type="checkbox" data-operacion="3" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.editar"/></a></li>
+													</c:if>	
+			
+													<c:if test="${!privilegios.get(i).getCambio()}">
+														<li><input type="checkbox" data-operacion="3" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.editar"/></a></li>
+													</c:if>
+			
+													<!-- consulta -->
+													<c:if test="${privilegios.get(i).getConsulta()}">
+														<li><input type="checkbox" data-operacion="4" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>" checked/><a href="#"><spring:message code="generic.consultar"/></a></li>
+													</c:if>	
+			
+													<c:if test="${!privilegios.get(i).getConsulta()}">
+														<li><input type="checkbox" data-operacion="4" data-modulo="<c:out value="${privilegios.get(i).getPtlcModulo().getIdModulo()}"></c:out>" data-funcion="<c:out value="${privilegios.get(i).getPtlcFuncion().getIdFun()}"></c:out>"/><a href="#"><spring:message code="generic.consultar"/></a></li>
+													</c:if>
+
 												</ul>
 											</li>										
 										<!-- /llena modulo -->

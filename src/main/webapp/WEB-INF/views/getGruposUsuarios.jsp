@@ -31,8 +31,8 @@
 								<tr data-href="getUsuariosByIdGpoUsu/<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>">
 									<td><c:out value="${gruposUsuarios.get(i).getNombre()}"></c:out></td>
 									<td><a id="editarPrivilegios<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-toggle="modal" href="getPrivilegiosByIdGpoUsu/<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
-									<td><a id="edita<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-toggle="modal" href="getGrupoUsuarioByid/<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
-									<td><a id="elimina<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" class="btn btn-default btn-link">Eliminar</a></td>
+									<td><a id="edita<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-toggle="modal" href="getGrupoUsuarioByid/<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link <spring:message code="icono.editar"/>"></a></td>
+									<td><a id="elimina<c:out value="${gruposUsuarios.get(i).getIdGpousu()}"></c:out>" class="btn btn-default btn-link <spring:message code="icono.eliminar"/>"></a></td>
 								</tr>
 								
 							</c:forEach>

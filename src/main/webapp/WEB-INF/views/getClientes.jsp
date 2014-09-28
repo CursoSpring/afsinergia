@@ -29,8 +29,8 @@
 							<c:forEach var="i" begin="0" end="${clientes.size()-1}">
 								<tr data-href="getContratos/<c:out value="${clientes.get(i).getIdCliente()}"></c:out>">
 									<td><c:out value="${clientes.get(i).getNombre()}"></c:out></td><td><c:out value="${clientes.get(i).getContacto()}"></c:out></td><td><c:out value="${clientes.get(i).getTelefono()}"></c:out></td><td><c:out value="${clientes.get(i).getMovil()}"></c:out></td><td><c:out value="${clientes.get(i).getMail()}"></c:out></td>
-									<td><a id="edita<c:out value="${clientes.get(i).getIdCliente()}"></c:out>" data-toggle="modal" href="getClienteByid/<c:out value="${clientes.get(i).getIdCliente()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
-									<td><a id="elimina<c:out value="${clientes.get(i).getIdCliente()}"></c:out>" class="btn btn-default btn-link">Eliminar</a></td>
+									<td><a id="edita<c:out value="${clientes.get(i).getIdCliente()}"></c:out>" data-toggle="modal" href="getClienteByid/<c:out value="${clientes.get(i).getIdCliente()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link <spring:message code="icono.editar"/>"></a></td>
+									<td><a id="elimina<c:out value="${clientes.get(i).getIdCliente()}"></c:out>" class="btn btn-default btn-link <spring:message code="icono.eliminar"/>"></a></td>
 								</tr>
 								
 							</c:forEach>

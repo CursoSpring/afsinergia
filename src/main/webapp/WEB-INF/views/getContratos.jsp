@@ -30,8 +30,8 @@
 							<c:forEach var="i" begin="0" end="${contratos.size()-1}">
 								<tr data-href="<c:out value="${moduloSolicitado.getModulo()}"></c:out>/<c:out value="${contratos.get(i).getIdContrato()}"></c:out>">
 									<td><c:out value="${contratos.get(i).getNoContrato()}"></c:out></td><td><c:out value="${contratos.get(i).getNomContrato()}"></c:out></td><td><c:out value="${contratos.get(i).getInicioContrato()}"></c:out></td><td><c:out value="${contratos.get(i).getPlazo()}"></c:out></td><td><c:out value="${contratos.get(i).getNoUnidades()}"></c:out></td>
-									<td><a id="edita<c:out value="${contratos.get(i).getIdContrato()}"></c:out>" data-toggle="modal" href="getContratoByid/<c:out value="${contratos.get(i).getIdContrato()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
-									<td><a id="elimina<c:out value="${contratos.get(i).getIdContrato()}"></c:out>" class="btn btn-default btn-link">Eliminar</a></td>
+									<td><a id="edita<c:out value="${contratos.get(i).getIdContrato()}"></c:out>" data-toggle="modal" href="getContratoByid/<c:out value="${contratos.get(i).getIdContrato()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link <spring:message code="icono.editar"/>"></a></td>
+									<td><a id="elimina<c:out value="${contratos.get(i).getIdContrato()}"></c:out>" class="btn btn-default btn-link <spring:message code="icono.eliminar"/>"></a></td>
 								</tr>
 								
 							</c:forEach>

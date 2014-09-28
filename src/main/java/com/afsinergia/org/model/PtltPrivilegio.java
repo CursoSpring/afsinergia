@@ -26,16 +26,24 @@ public class PtltPrivilegio implements java.io.Serializable {
 	private PtlcFuncion ptlcFuncion;
 	private UsutGpousu usutGpousu;
 	private PtlcModulo ptlcModulo;
+	private Boolean alta;
+	private Boolean baja;
+	private Boolean cambio;
+	private Boolean consulta;
 
 	public PtltPrivilegio() {
 	}
 
 	public PtltPrivilegio(int idPrivilegio, PtlcFuncion ptlcFuncion,
-			UsutGpousu usutGpousu, PtlcModulo ptlcModulo) {
+			UsutGpousu usutGpousu, PtlcModulo ptlcModulo, Boolean alta, Boolean baja, Boolean cambio, Boolean consulta) {
 		this.idPrivilegio = idPrivilegio;
 		this.ptlcFuncion = ptlcFuncion;
 		this.usutGpousu = usutGpousu;
 		this.ptlcModulo = ptlcModulo;
+		this.alta = alta;
+		this.baja = baja;
+		this.cambio = cambio;
+		this.consulta = consulta;
 	}
 
 	@Id
@@ -78,4 +86,42 @@ public class PtltPrivilegio implements java.io.Serializable {
 		this.ptlcModulo = ptlcModulo;
 	}
 
+	@Column(name = "alta")
+	public Boolean getAlta() {
+		return alta;
+	}
+
+	public void setAlta(Boolean alta) {
+		this.alta = alta;
+	}
+
+	@Column(name = "baja")
+	public Boolean getBaja() {
+		return baja;
+	}
+
+	public void setBaja(Boolean baja) {
+		this.baja = baja;
+	}
+
+	@Column(name = "cambio")
+	public Boolean getCambio() {
+		return cambio;
+	}
+
+	public void setCambio(Boolean cambio) {
+		this.cambio = cambio;
+	}
+
+	@Column(name = "consulta")
+	public Boolean getConsulta() {
+		return consulta;
+	}
+
+	public void setConsulta(Boolean consulta) {
+		this.consulta = consulta;
+	}
+
+	
+	
 }

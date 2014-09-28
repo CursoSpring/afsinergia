@@ -59,7 +59,7 @@
 					<div id="navbarCollapse" class="collapse navbar-collapse">
 
 						<!-- Logout -->					
-						<a class="btn btn-default pull-right" href="logout" role="button"><spring:message code="logout"/></a>
+						<a class="btn pull-right fa fa-sign-out fa-2x" style="color:black; padding-top: 12px;" href="logout" role="button" data-toggle="tooltip" data-placement="top" title="<spring:message code="logout"/>"></a>
 						<a class="navbar-brand" href="#"><spring:message code="admin.msg.bienvenida"/> <c:out value="${nombreDeUsuario}"></c:out></a>
 						<a href="./?language=es">Español</a> | <a href="./?language=en">English</a>
 						
@@ -83,7 +83,7 @@
 								<c:if test="${idModulo == privilegiosUsuario.get(i).getPtlcModulo().getIdModulo()}">
 								
 								<!-- llena dropdown -->
-								<li><button type="button" class="btn btn-link" id="${privilegiosUsuario.get(i).getPtlcFuncion().getUrlControlador()}"><c:out value="${privilegiosUsuario.get(i).getPtlcFuncion().getNomFun()}"></c:out></button></li>
+								<li><button type="button" class="btn btn-link ${privilegiosUsuario.get(i).getPtlcFuncion().getIcono()}" id="${privilegiosUsuario.get(i).getPtlcFuncion().getUrlControlador()}"><c:out value="   ${privilegiosUsuario.get(i).getPtlcFuncion().getNomFun()}"></c:out></button></li>
 								<!-- /llena dropdown -->
 								
 									<c:if test="${i == privilegiosUsuario.size()-1}">
@@ -111,7 +111,7 @@
 										<!-- /crea dropdown -->
 										
 											<!-- llena dropdown -->
-											<li><button type="button" class="btn btn-link" id="${privilegiosUsuario.get(i).getPtlcFuncion().getUrlControlador()}"><c:out value="${privilegiosUsuario.get(i).getPtlcFuncion().getNomFun()}"></c:out></button></li>
+											<li><button type="button" class="btn btn-link ${privilegiosUsuario.get(i).getPtlcFuncion().getIcono()}" id="${privilegiosUsuario.get(i).getPtlcFuncion().getUrlControlador()}"><c:out value="   ${privilegiosUsuario.get(i).getPtlcFuncion().getNomFun()}"></c:out></button></li>
 											<!-- /llena dropdown -->
 									</c:if>
 									<c:if test="${i == privilegiosUsuario.size()-1}">

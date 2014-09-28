@@ -67,6 +67,23 @@ public class URLS {
 	public static final String UNIDAD = "/unidad/{id}";	
 	////////////////////////////////////////////////////Fin flujo/////////////////////////////////////////////
 	
+
+	////////////////////////////////////////////////////Flujo instaladores - instalaciones/////////////////////////////////////////////
+	//Controller AfstFlotillas
+	public static final String GET_INSTALADORES = "/getInstaladores";
+	public static final String GET_INSTALADORES_BY_ID_CLIENTE = GET_INSTALADORES+"/{id}";
+	public static final String GET_INSTALADOR_BY_ID = "/getInstaladorByid/{id}";
+	public static final String SET_INSTALADOR = "/setInstalador";
+	public static final String INSTALADOR = "/instalador/{id}";
+
+	//Controller UnitUnidad
+	/*public static final String GET_UNIDADES = "/getUnidades";
+	public static final String GET_UNIDADES_BY_ID_FLOTILLA = "/getUnidadesByIdFlotilla/{id}";
+	public static final String GET_UNIDADES_BY_ID_CONTRATO = GET_UNIDADES+"/{id}";
+	public static final String GET_UNIDAD_BY_ID = "/getUnidadById/{id}";
+	public static final String SET_UNIDAD = "/setUnidad";
+	public static final String UNIDAD = "/unidad/{id}";*/
+	////////////////////////////////////////////////////Fin flujo/////////////////////////////////////////////
 	
 	///Ctes para genero
 	public static final Boolean GENERO_HOMBRE = true;

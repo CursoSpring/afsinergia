@@ -10,7 +10,8 @@ $(document).ready(function() {
 			path = path.substr(0,1)=='/'?path.replace('/', ''):path;
 			alert(path);
 			setUrlCallBackLoad(path);
-			//$("#listCamino").append('<li><a href='+path+' onclick ='+alert("aaa")+'>'+path+'</a></li>');
+			//$("#listCamino").append('<li><a href='+path+'>'+path+'</a></li>');
+			//$("#listCamino").append('<li><button type="button" class="btn btn-link load" id='+path+'_>'+path+'</button></li>');
 			$("#pruebaDivContenedor").load(path);
 		}
 	}).find('a').hover( function() {
@@ -25,10 +26,23 @@ $(document).ready(function() {
 				path = path.substr(0,1)=='/'?path.replace('/', ''):path; 
 				alert(path);
 				setUrlCallBackLoad(path);
-				//$("#listCamino").append('<li><a href='+path+' onclick ='+alert("aaa")+'>'+path+'</a></li>');
+				//$("#listCamino").append('<li><a href='+path+'>'+path+'</a></li>');
+				//$("#listCamino").append('<li><button type="button" class="btn btn-link load" id='+path+'_>'+path+'</button></li>');
 				$("#pruebaDivContenedor").load(path);
 			}
 		});
 	});
+	
+	
+	/*$("#listCamino li a").click(function(){
+		var $btn = $(this);
+		
+		//var url = $btn.attr('id');
+		var url = $btn.attr('href');
+		$btn.attr('href','#');
+		//url = url.substring(0, url.length-1);
+		console.log("url = "+url);
+		$("#pruebaDivContenedor").load(url);
+	});*/
 	
 });

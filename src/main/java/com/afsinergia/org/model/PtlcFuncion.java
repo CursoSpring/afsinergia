@@ -35,26 +35,29 @@ public class PtlcFuncion implements java.io.Serializable {
 	private String nomFun;
 	private String tipo;
 	private String urlControlador;
+	private String icono;
 	private Set<PtltPrivilegio> ptltPrivilegios = new HashSet<PtltPrivilegio>(0);
 
 	public PtlcFuncion() {
 	}
 
 	public PtlcFuncion(PtlcModulo ptlcModulo, String nomFun, String tipo,
-			String urlControlador) {
+			String urlControlador, String icono) {
 		this.ptlcModulo = ptlcModulo;
 		this.nomFun = nomFun;
 		this.tipo = tipo;
 		this.urlControlador = urlControlador;
+		this.icono = icono;
 	}
 
 	public PtlcFuncion(PtlcModulo ptlcModulo, String nomFun, String tipo,
-			String urlControlador, Set<PtltPrivilegio> ptltPrivilegios) {
+			String urlControlador, String icono, Set<PtltPrivilegio> ptltPrivilegios) {
 		this.ptlcModulo = ptlcModulo;
 		this.nomFun = nomFun;
 		this.tipo = tipo;
 		this.urlControlador = urlControlador;
 		this.ptltPrivilegios = ptltPrivilegios;
+		this.icono = icono;
 	}
 
 	@Id
@@ -103,6 +106,15 @@ public class PtlcFuncion implements java.io.Serializable {
 
 	public void setUrlControlador(String urlControlador) {
 		this.urlControlador = urlControlador;
+	}
+
+	@Column(name = "icono", length = 45)
+	public String getIcono() {
+		return this.icono;
+	}
+
+	public void setIcono(String icono) {
+		this.icono = icono;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ptlcFuncion")

@@ -31,8 +31,8 @@
 								<tr data-href="getUsuariosByIdGpoUsu/<c:out value="${dispositivos.get(i).getIdDispositivo()}"></c:out>">
 									<td><c:out value="${dispositivos.get(i).getImei()}"></c:out></td>
 									<td><c:out value="${dispositivos.get(i).getDistSim().getIccid()}"></c:out></td>
-									<td><a id="edita<c:out value="${dispositivos.get(i).getIdDispositivo()}"></c:out>" data-toggle="modal" href="getDispositivoById/<c:out value="${dispositivos.get(i).getIdDispositivo()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
-									<td><a id="elimina<c:out value="${dispositivos.get(i).getIdDispositivo()}"></c:out>" class="btn btn-default btn-link">Eliminar</a></td>
+									<td><a id="edita<c:out value="${dispositivos.get(i).getIdDispositivo()}"></c:out>" data-toggle="modal" href="getDispositivoById/<c:out value="${dispositivos.get(i).getIdDispositivo()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link <spring:message code="icono.editar"/>"></a></td>
+									<td><a id="elimina<c:out value="${dispositivos.get(i).getIdDispositivo()}"></c:out>" class="btn btn-default btn-link <spring:message code="icono.eliminar"/>"></a></td>
 								</tr>
 								
 							</c:forEach>

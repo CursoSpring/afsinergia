@@ -30,8 +30,8 @@
 							<c:forEach var="i" begin="0" end="${usuarios.size()-1}">
 								<tr>
 									<td><c:out value="${usuarios.get(i).getUsuario()}"></c:out></td><td><c:out value="${usuarios.get(i).getClave()}"></c:out></td><td><c:out value="${usuarios.get(i).getNombre()}"></c:out></td><td><c:out value="${usuarios.get(i).getApePat()}"></c:out></td><td><c:out value="${usuarios.get(i).getApeMat()}"></c:out></td><td><c:out value="${usuarios.get(i).getUsutGpousu().getNombre()}"></c:out></td><td><c:out value="${usuarios.get(i).getStatus()}"></c:out></td>
-									<td><a id="edita<c:out value="${usuarios.get(i).getIdUsuario()}"></c:out>" data-toggle="modal" href="getUsuarioById/<c:out value="${usuarios.get(i).getIdUsuario()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link">Eidtar</a></td>
-									<td><a id="elimina<c:out value="${usuarios.get(i).getIdUsuario()}"></c:out>" class="btn btn-default btn-link">Eliminar</a></td>
+									<td><a id="edita<c:out value="${usuarios.get(i).getIdUsuario()}"></c:out>" data-toggle="modal" href="getUsuarioById/<c:out value="${usuarios.get(i).getIdUsuario()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link <spring:message code="icono.editar"/>"></a></td>
+									<td><a id="elimina<c:out value="${usuarios.get(i).getIdUsuario()}"></c:out>" class="btn btn-default btn-link <spring:message code="icono.eliminar"/>"></a></td>
 								</tr>
 								
 							</c:forEach>
