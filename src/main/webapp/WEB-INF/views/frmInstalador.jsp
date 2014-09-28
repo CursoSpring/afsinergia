@@ -34,11 +34,35 @@
 				</div>
 			</div>
 	
-			<!-- Este campo es de texto para el usuario -->
+			<!-- nombre del instalador -->
 			<div class="form-group">
 				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label"><spring:message code="generic.nombre"/></label>
 				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 					<input type="text" class="form-control" id="nombreInstalador" name="nombreInstalador" value="<c:out value="${instalador.getNombre()}"></c:out>"/>
+				</div>
+			</div>
+	
+			<!-- app del instalador -->
+			<div class="form-group">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label"><spring:message code="usuarios.app"/></label>
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+					<input type="text" class="form-control" id="appInstalador" name="appInstalador" value="<c:out value="${instalador.getPaterno()}"></c:out>"/>
+				</div>
+			</div>
+	
+			<!-- apm del instalador -->
+			<div class="form-group">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label"><spring:message code="usuarios.apm"/></label>
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+					<input type="text" class="form-control" id="apmInstalador" name="apmInstalador" value="<c:out value="${instalador.getMaterno()}"></c:out>"/>
+				</div>
+			</div>
+	
+			<!-- correo del instalador -->
+			<div class="form-group">
+				<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label"><spring:message code="generic.correo"/></label>
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+					<input type="text" class="form-control" id="correoInstalador" name="correoInstalador" value="<c:out value="${instalador.getCorreo()}"></c:out>"/>
 				</div>
 			</div>
 	

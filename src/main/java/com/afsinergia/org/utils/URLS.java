@@ -72,7 +72,7 @@ public class URLS {
 	//Controller AfstFlotillas
 	public static final String GET_INSTALADORES = "/getInstaladores";
 	public static final String GET_INSTALADORES_BY_ID_CLIENTE = GET_INSTALADORES+"/{id}";
-	public static final String GET_INSTALADOR_BY_ID = "/getInstaladorByid/{id}";
+	public static final String GET_INSTALADOR_BY_ID = "/getInstaladorById/{id}";
 	public static final String SET_INSTALADOR = "/setInstalador";
 	public static final String INSTALADOR = "/instalador/{id}";
 

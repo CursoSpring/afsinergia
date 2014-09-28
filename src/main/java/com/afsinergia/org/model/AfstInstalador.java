@@ -130,7 +130,7 @@ public class AfstInstalador implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_alta", nullable = false, length = 0)
+	@Column(name = "fecha_alta", length = 0)
 	public Date getFechaAlta() {
 		return this.fechaAlta;
 	}
@@ -140,7 +140,7 @@ public class AfstInstalador implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_actualiza", nullable = false, length = 0)
+	@Column(name = "fecha_actualiza", length = 0)
 	public Date getFechaActualiza() {
 		return this.fechaActualiza;
 	}
@@ -150,7 +150,7 @@ public class AfstInstalador implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_baja", nullable = false, length = 0)
+	@Column(name = "fecha_baja", length = 0)
 	public Date getFechaBaja() {
 		return this.fechaBaja;
 	}

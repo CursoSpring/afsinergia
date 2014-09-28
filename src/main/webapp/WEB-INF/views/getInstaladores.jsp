@@ -33,7 +33,7 @@
 									<td><c:out value="${instaladores.get(i).getPaterno()}"></c:out></td>
 									<td><c:out value="${instaladores.get(i).getMaterno()}"></c:out></td>
 									<td><c:out value="${instaladores.get(i).getCorreo()}"></c:out></td>
-									<td><a id="edita<c:out value="${instaladores.get(i).getIdInstalador()}"></c:out>" data-toggle="modal" href="getFlotillaByid/<c:out value="${instaladores.get(i).getIdInstalador()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link <spring:message code="icono.editar"/>"></a></td>
+									<td><a id="edita<c:out value="${instaladores.get(i).getIdInstalador()}"></c:out>" data-toggle="modal" href="getInstaladorById/<c:out value="${instaladores.get(i).getIdInstalador()}"></c:out>" data-target="#myModal" class="btn btn-default btn-link <spring:message code="icono.editar"/>"></a></td>
 									<td><a id="elimina<c:out value="${instaladores.get(i).getIdInstalador()}"></c:out>" class="btn btn-default btn-link <spring:message code="icono.eliminar"/>"></a></td>
 								</tr>
 								
